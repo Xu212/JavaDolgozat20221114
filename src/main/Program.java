@@ -160,7 +160,8 @@ public class Program {
          }
     
     }
-
+    int keveres = 0;
+    ArrayList<JButton> sorrendGomb = new ArrayList<JButton>();
     class Kever implements ItemListener {
 
         @Override
@@ -172,19 +173,26 @@ public class Program {
                 if (raw[i] instanceof JButton) {
                     gombok.add((JButton) raw[i]);
                 }
+            if(keveres<10){
+            sorrendGomb.add((JButton) raw[i]);
+            keveres++;
+            }
             }
             Collections.shuffle(gombok);
             if (jcbKever.isSelected()) {
                 megjelenit(gombok);
             }
             else{
-                megjelenit(gombSorrendben);
+                System.out.println("asd");
+                megjelenit(sorrendGomb);
             }
         }
+        JButton szinGomb = new JButton();
         public void megjelenit(ArrayList<JButton> gombok){
             jpPin.removeAll();
             jpPin.revalidate();
             for (JButton gomb : gombok) {
+                gomb.setBackground(szinGomb.getBackground());
                 jpPin.add(gomb);
             }
         }
